@@ -1,0 +1,40 @@
+@import 'scss/mixins';
+@import 'scss/ext';
+@import 'scss/var';
+
+* {box-sizing:border-box;}
+
+
+.overlay {position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.65);display:none;}
+.employee-direct {
+	width:90%;
+	margin:12px auto;
+	padding:10px 0;
+	background:#efefef;
+	@extend %clearfix;
+	@include tablet {padding:18px 12px;}
+	.employee {
+		padding:10px 5px;
+		@include tablet {width:33.333%;padding:10px;float:left}
+		.content {
+			background:#fff;
+			padding:10px;
+			border-radius:5px;
+			border:1px solid #ddd;
+		}
+	}
+	.employee-info {
+		background:#fff;
+		box-shadow:5px 5px 18px rgba(0,0,0,0.08),-5px 5px 18px rgba(0,0,0,0.08),-5px -5px 18px rgba(0,0,0,0.08),5px -5px 18px rgba(0,0,0,0.08);
+		border-radius:5px;
+		text-align:center;
+		position:fixed;
+		left:50%;top:50%;
+		transform:translate(-50%,-50%);
+		display:none;
+		img {
+			border-radius:60px;
+		}
+	}
+
+}

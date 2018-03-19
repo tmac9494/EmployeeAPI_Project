@@ -1,0 +1,51 @@
+.employee-direct {
+  display: table;
+  content: '';
+  clear: both; }
+
+* {
+  box-sizing: border-box; }
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none; }
+
+.employee-direct {
+  width: 90%;
+  margin: 12px auto;
+  padding: 10px 0;
+  background: #efefef; }
+  @media (min-width: 768px) {
+    .employee-direct {
+      padding: 18px 12px; } }
+  .employee-direct .employee {
+    padding: 10px 5px; }
+    @media (min-width: 768px) {
+      .employee-direct .employee {
+        width: 33.333%;
+        padding: 10px;
+        float: left; } }
+    .employee-direct .employee .content {
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd; }
+  .employee-direct .employee-info {
+    background: #fff;
+    box-shadow: 5px 5px 18px rgba(0, 0, 0, 0.08), -5px 5px 18px rgba(0, 0, 0, 0.08), -5px -5px 18px rgba(0, 0, 0, 0.08), 5px -5px 18px rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none; }
+    .employee-direct .employee-info img {
+      border-radius: 60px; }
+
+/*# sourceMappingURL=main.css.map */
