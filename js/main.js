@@ -4,7 +4,6 @@ $(document).ready(function() {
 	  url: 'https://randomuser.me/api/?results=12&nat=us',
 	  dataType: 'json',
 	  success: function(data) {
-	    console.log(data);
 	    data.results.map(function(v,i,arr) {
 	    	$name = '<h2 class="cpt">'+ v.name.first +' '+ v.name.last +'</h2>';
 	    	$email = '<p>'+ v.email +'</p>';
@@ -19,9 +18,7 @@ $(document).ready(function() {
 
 	function getOrder() {
 		$nextInfo = $('.current-info').parent().nextAll('.employee:not(.hidden-usr)').first().find('.employee-info');
-		// if ($nextInfo.parent().hasClass('hidden-usr')) {$nextInfo = $nextInfo.parent().next().find('.employee-info');}
 		$prevInfo = $('.current-info').parent().prevAll('.employee:not(.hidden-usr)').first().find('.employee-info');
-		// if ($prevInfo.parent().hasClass('hidden-usr')) {$prevInfo = $nextInfo.parent().prev().find('.employee-info');}
 	}
 
 	$('.employee-direct').on('click', '.employee',function() {

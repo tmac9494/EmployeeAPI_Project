@@ -3,8 +3,11 @@
 @import 'scss/var';
 
 * {box-sizing:border-box;font-family: 'Nunito', sans-serif;}
-@keyframes bouncy {50% {transform:scale(1.4);background:$ltBlack;} 75%{} 100% {transform:scale(1.2);background:$lime;}}
+@keyframes bouncy {50% {transform:scale(1.2);background:none;} 75%{} 100% {transform:scale(1.1);background:$lime;}}
 .cpt {text-transform:capitalize;}
+p {font-size:14px;@include tablet {font-size:16px};@include lg-screen {font-size:18px}}
+h2 {font-size:20px;@include tablet {font-size:24px};@include lg-screen {font-size:32px}}
+
 
 .hidden-usr {display:none;}
 .overlay {@include fixed(0,0,0,0);background:rgba(0,0,0,0.65);display:none;z-index:100;}
@@ -16,6 +19,7 @@
 	cursor:pointer;
 	text-shadow:$gen-shadow;
 	transition:.25s;
+	z-index:150;
 	@include tablet {
 		top:15%;right:15%;
 		font-size:32px;
@@ -26,12 +30,12 @@
 //employee styles
 
 .search {
-	width:90%;
+	width:95%;
 	margin:12px auto;
-	padding:10px 0;
+	padding:10px 5px;
 	border-radius:5px;
 	background:$offWhite;
-	@include tablet {padding:10px 12px;}
+	@include tablet {padding:10px 12px;width:90%;}
 
 }
 .search input {
@@ -45,17 +49,18 @@
 	&:focus {opacity:1;outline:none;}
 }
 .employee-direct {
-	width:90%;
+	width:95%;
 	margin:12px auto;
 	padding:10px 0;
 	border-radius:5px;
 	background:$offWhite;
 	@extend %clearfix;
-	@include tablet {padding:18px 12px;}
+	@include tablet {padding:18px 12px;width:90%;}
 	.employee {
 		padding:10px 5px;
 		text-align:center;
-		@include tablet {width:33.333%;padding:10px;float:left}
+		@include tablet {width:50%;padding:10px;float:left}
+		@include desktop {width:33.333%}
 		img {border-radius:75px;margin:12px auto;transition:.25s;}
 		p {margin:0 auto 10px}
 		h2 {margin:0 auto 14px;}
@@ -63,6 +68,8 @@
 }
 
 .employee .content {
+	@extend %clearfix;
+	width:100%;
 	background:$white;
 	color:$black;
 	padding:10px;
@@ -70,7 +77,11 @@
 	border:1px solid $border;
 	transition:.25s;
 	cursor:pointer;
-	img {padding:5px;}
+	text-align:left;
+	img {padding:5px;width:33.333%;max-width:145px;float:left;height:auto;@include tablet {margin-left:2%;}}
+	h2,p {width:60%;float:right;}
+	h2 {margin: 20px auto 5px;@include tablet {margin-top:28px}}
+	p {word-break:break-all;margin-bottom:5px;}
 	&:hover {
 		background:$black;
 		color:$white;
