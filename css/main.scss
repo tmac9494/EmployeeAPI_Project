@@ -2,39 +2,113 @@
 @import 'scss/ext';
 @import 'scss/var';
 
-* {box-sizing:border-box;}
+* {box-sizing:border-box;font-family: 'Nunito', sans-serif;}
+@keyframes bouncy {50% {transform:scale(1.4);background:$ltBlack;} 75%{} 100% {transform:scale(1.2);background:$lime;}}
+.cpt {text-transform:capitalize;}
 
+.hidden-usr {display:none;}
+.overlay {@include fixed(0,0,0,0);background:rgba(0,0,0,0.65);display:none;z-index:100;}
+.overlay-exit {
+	@include fixed(0,0,auto,auto);
+	padding:10px;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	text-shadow:$gen-shadow;
+	transition:.25s;
+	@include tablet {
+		top:15%;right:15%;
+		font-size:32px;
+		&:hover {font-size:42px;}
+	}
+}
 
-.overlay {position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,0.65);display:none;}
+//employee styles
+
+.search {
+	width:90%;
+	margin:12px auto;
+	padding:10px 0;
+	border-radius:5px;
+	background:$offWhite;
+	@include tablet {padding:10px 12px;}
+
+}
+.search input {
+	border-radius:5px;
+	background:white;
+	transition:.25s;
+	color:$black;
+	opacity:.65;
+	border:1px solid $border;
+	padding:8px 5px;
+	&:focus {opacity:1;outline:none;}
+}
 .employee-direct {
 	width:90%;
 	margin:12px auto;
 	padding:10px 0;
-	background:#efefef;
+	border-radius:5px;
+	background:$offWhite;
 	@extend %clearfix;
 	@include tablet {padding:18px 12px;}
 	.employee {
 		padding:10px 5px;
-		@include tablet {width:33.333%;padding:10px;float:left}
-		.content {
-			background:#fff;
-			padding:10px;
-			border-radius:5px;
-			border:1px solid #ddd;
-		}
-	}
-	.employee-info {
-		background:#fff;
-		box-shadow:5px 5px 18px rgba(0,0,0,0.08),-5px 5px 18px rgba(0,0,0,0.08),-5px -5px 18px rgba(0,0,0,0.08),5px -5px 18px rgba(0,0,0,0.08);
-		border-radius:5px;
 		text-align:center;
-		position:fixed;
-		left:50%;top:50%;
-		transform:translate(-50%,-50%);
-		display:none;
+		@include tablet {width:33.333%;padding:10px;float:left}
+		img {border-radius:75px;margin:12px auto;transition:.25s;}
+		p {margin:0 auto 10px}
+		h2 {margin:0 auto 14px;}
+	}
+}
+
+.employee .content {
+	background:$white;
+	color:$black;
+	padding:10px;
+	border-radius:5px;
+	border:1px solid $border;
+	transition:.25s;
+	cursor:pointer;
+	img {padding:5px;}
+	&:hover {
+		background:$black;
+		color:$white;
+		border-color: $ltBlack;
 		img {
-			border-radius:60px;
+			animation:bouncy .65s ease-out forwards;
 		}
 	}
-
 }
+
+
+.employee-info {
+	background:$black;
+	border:1px solid $ltBlack;
+	color:$gray;
+	z-index:110;
+	box-shadow:5px 5px 18px rgba(0,0,0,0.14),-5px 5px 18px rgba(0,0,0,0.14),-5px -5px 18px rgba(0,0,0,0.14),5px -5px 18px rgba(0,0,0,0.14);
+	border-radius:5px;
+	position:fixed;
+	@extend %pos-center;
+	display:none;
+	width:90%;max-width:345px;
+	padding:12px;
+	img {background:$lime;padding:5px;box-shadow:$gen-shadow;}
+	h2 {color:$white;}
+}
+
+.gray-line {padding:1px;border-radius:10px;background:$ltBlack;margin:14px auto;width:80%;}
+
+//controls 
+
+.arrow {
+	color:white;
+	text-shadow:$gen-shadow;
+	padding:5px;
+	transform:translateY(-50%);
+	cursor:pointer;
+	@include tablet {padding:100px 45px;font-size:24px;}
+}
+.right-arrow {@include fixed(50%,0,auto,auto);}
+.left-arrow {@include fixed(50%,auto,auto,0);}
